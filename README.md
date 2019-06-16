@@ -7,7 +7,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 | Andrew Friedman (Team Lead) | andrew at cyberdreaming dot net         |
 | Christian Röpke             | chroepke at gmail dot com               |
 | Angelo Antonio Manzatto     | angelo.manzatto at yahoo dot com dot br |
-| Lily Huang                  | huanglily1987 at gmail dot com          |
+| Lily Huang                  | lilyhappily at 126 dot com              |
 | Sarath Radhakrishnan        | sarath.rk at outlook dot com            |
 
 Please use **one** of the two installation options, either native **or** docker installation.
