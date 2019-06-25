@@ -11,20 +11,12 @@ class TLClassifier(object):
     def __init__(self, is_site):
         self.is_site = is_site
 
-        if self.is_site:
-            PATH_TO_GRAPH = r'light_classification/model/ssd_site/frozen_inference_graph.pb'
-            self.light_states= [(TrafficLight.UNKNOWN, 'UNKNOWN'), 
-                                (TrafficLight.GREEN, 'GREEN'), 
-                                (TrafficLight.RED, 'RED'), 
-                                (TrafficLight.YELLOW, 'YELLOW'), 
-                                (TrafficLight.UNKNOWN, 'UNKNOWN')]
-        else:
-            PATH_TO_GRAPH = r'light_classification/model/ssd_sim/frozen_inference_graph.pb'  
-            self.light_states = [(TrafficLight.UNKNOWN, 'UNKNOWN'), 
-                                 (TrafficLight.GREEN, 'GREEN'), 
-                                 (TrafficLight.YELLOW, 'YELLOW'), 
-                                 (TrafficLight.RED, 'RED'), 
-                                 (TrafficLight.UNKNOWN, 'UNKNOWN')]
+        PATH_TO_GRAPH = r'light_classification/model/ssd_sim/frozen_inference_graph.pb'  
+        self.light_states = [(TrafficLight.UNKNOWN, 'UNKNOWN'), 
+                            (TrafficLight.GREEN, 'GREEN'), 
+                            (TrafficLight.YELLOW, 'YELLOW'), 
+                            (TrafficLight.RED, 'RED'), 
+                            (TrafficLight.UNKNOWN, 'UNKNOWN')]
 
         self.detection_graph = self.load_graph(PATH_TO_GRAPH)
         if self.detection_graph:
