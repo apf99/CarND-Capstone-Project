@@ -35,9 +35,6 @@ class TLClassifier(object):
         self.detection_classes = self.detection_graph.get_tensor_by_name('detection_classes:0')
 
     def get_classification(self, image):   
-        image = cv2.resize(image, (300, 300))    # use a smaller image to reduce processing time
-
-        # Convert image from BGR Space to RGB for simulator model only
         if not self.is_site:
             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 

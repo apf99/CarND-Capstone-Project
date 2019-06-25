@@ -62,9 +62,10 @@ class TLDetector(object):
 
     def image_cb(self, msg):
         # To reduce latency from camera image processing
-        self.camera_count = (self.camera_count + 1) % 9  # Process every 9th image
-        if self.camera_count > 0:
-            return
+        if not self.is_site:
+            self.camera_count = (self.camera_count + 1) % 9    # Process every 9th image on simulator
+            if self.camera_count > 0:
+                return
 
         self.has_image = True
         self.camera_image = msg
