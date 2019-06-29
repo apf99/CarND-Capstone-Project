@@ -40,8 +40,8 @@ class TLDetector(object):
         self.light_classifier = TLClassifier(self.is_site)
         self.listener = tf.TransformListener()
 
-        self.state = TrafficLight.UNKNOWN
-        self.last_state = TrafficLight.UNKNOWN
+        self.state = TrafficLight.RED
+        self.last_state = TrafficLight.RED
         self.last_wp = -1
         self.state_count = 0
         self.camera_count = 0
@@ -70,7 +70,7 @@ class TLDetector(object):
         self.has_image = True
         self.camera_image = msg
         light_wp, state = self.process_traffic_lights()
-        #rospy.logwarn("Closest light wp: {0} \n And light state: {1}".format(light_wp, state))
+        rospy.logwarn("Closest light wp: {0} \n And light state: {1}".format(light_wp, state))
 
         if self.state != state:
             self.state_count = 0
