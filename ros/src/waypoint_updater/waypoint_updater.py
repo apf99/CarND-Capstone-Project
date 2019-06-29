@@ -11,9 +11,8 @@ import math
 
 # This node will publish waypoints from the car's current position to some `x` distance ahead.
 
-LOOKAHEAD_WPS = 200 # Number of waypoints we will publish. 
+LOOKAHEAD_WPS = 100 # Number of waypoints we will publish. 
 MAX_DECEL = 0.5 
-
 
 class WaypointUpdater(object):
 	def __init__(self):
@@ -37,7 +36,7 @@ class WaypointUpdater(object):
 		self.loop()
 		
 	def loop(self):
-		rate = rospy.Rate(40)
+		rate = rospy.Rate(30)
 		while not rospy.is_shutdown():
 			if self.pose and self.base_lane:
 				self.publish_waypoints() 
@@ -69,7 +68,7 @@ class WaypointUpdater(object):
 
 	def generate_lane(self):
 		lane = Lane()
-		
+
 		closest_idx = self.get_closest_waypoint_idx()
 		farthest_idx = closest_idx + LOOKAHEAD_WPS
 		base_waypoints = self.base_lane.waypoints[closest_idx:farthest_idx]
