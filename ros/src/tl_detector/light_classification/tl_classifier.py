@@ -44,7 +44,7 @@ class TLClassifier(object):
             score = scores[0]
             label = int(classes[0])
             if score > DETECTION_THRESHOLD:
-                rospy.logwarn( "Light State: {}".format(self.light_states[label][1]) )
+                rospy.logwarn( "Light State: {}  Score: {}".format(self.light_states[label][1]), score )
                 return self.light_states[label][0]
 
         rospy.logwarn("Light st: UNKNOWN")
