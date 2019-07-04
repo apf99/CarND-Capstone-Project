@@ -39,7 +39,7 @@ class TLClassifier(object):
         scores = np.squeeze(scores)
         classes = np.squeeze(classes)
 
-        if classes and scores:
+        if len(classes) and len(scores):
             score = scores[0]
             label = int(classes[0])
             if score > DETECTION_THRESHOLD:
