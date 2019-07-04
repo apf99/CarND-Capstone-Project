@@ -31,7 +31,8 @@ class TLClassifier(object):
             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
         # Expand image dimension for processing in tensorflow graph
-        image_np = np.expand_dims(np.asarray(image, dtype=np.uint8), 0)
+        #image_np = np.expand_dims(np.asarray(image, dtype=np.uint8), 0)
+        image_np = np.expand_dims(img, 0)
 
         with tf.Session(graph=self.detection_graph) as sess:
             scores, classes = sess.run([self.detection_scores, self.detection_classes], feed_dict={self.image_tensor: image_np})
